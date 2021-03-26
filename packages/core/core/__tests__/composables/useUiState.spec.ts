@@ -6,11 +6,13 @@ const {
   isLoginModalOpen,
   isCategoryGridView,
   isFilterSidebarOpen,
+  isMobileMenuOpen,
   toggleCartSidebar,
   toggleWishlistSidebar,
   toggleLoginModal,
   toggleCategoryGridView,
-  toggleFilterSidebar
+  toggleFilterSidebar,
+  toggleMobileMenu
 } = useUiState();
 
 describe('useUiState', () => {
@@ -52,5 +54,13 @@ describe('useUiState', () => {
     toggleFilterSidebar();
 
     expect(expectedIsFilterSidebarOpen).toBe(isFilterSidebarOpen.value);
+  });
+
+  it('Mobile Menu', () => {
+    const expectedIsMobileMenuOpen = !isMobileMenuOpen.value;
+
+    toggleMobileMenu();
+
+    expect(expectedIsMobileMenuOpen).toBe(isMobileMenuOpen.value);
   });
 });
